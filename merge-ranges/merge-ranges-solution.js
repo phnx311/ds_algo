@@ -63,3 +63,17 @@ function mergeRanges(meetings) {
 
   return mergedMeetings;
 }
+
+
+// Things to consider
+
+// How is this considered an example of using a Greedy Algorithm?
+// Is it because at each index of the sortedMeetings, we are looking for the best endtime to use?
+// *note*
+// Validating that a greedy strategy always gets the best answer is tricky. Either prove that the answer produced by the greedy algorithm is as good as an optimal answer, or run through a rigorous set of test cases to convince your interviewer (and yourself) that it's correct.
+
+// What if we did have an upper bound on the input values ? Could we improve our runtime ? Would it cost us memory ?
+
+
+//   Could we do this "in place" on the input array and save some space ? What are the pros and cons of doing this in place ?
+
