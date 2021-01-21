@@ -31,11 +31,17 @@ class Stack {
 }
 
 class MaxStack {
-
+    //we are not extending Stack here, rather using it in our constructor as a ds
+    //because we are writing all new pop, push functionality
+    //we are taking a 'ahead-of-time' approach here rather than
+    //'just-in-time'. so whenever we push or pop we check it against 
+    //the last item in maxStack.
     constructor() {
         this.stack = new Stack();
         this.maxStack = new Stack();
     }
+
+
 
     getMax() {
 
