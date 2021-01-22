@@ -10,6 +10,7 @@ class Stack {
 
     push(item) {
        this.items.push(item); 
+       this.length++;
     }
 
     pop() {
@@ -17,8 +18,9 @@ class Stack {
         if (!this.items.length) {
             return null;
         }
-
+        this.length--;
         return this.items.pop(item);
+
     }
 
 
