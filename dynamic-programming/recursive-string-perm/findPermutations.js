@@ -35,5 +35,8 @@ function findAllPerms(str) {
 //TODO 
 
 //take a look at the iterative solution and compare
-//how does the problem change if the string can have duplicate characters
+//how does the problem change if the string can have duplicate characters 
+    //we would get duplicate answers if permutations were a simple array, however the use of Sets ds handles this
 //what if we wanted to bring down time and/or space costs
+
+//learned that this is an example of The Master Theorem falling into the category of Divide and Conquer Algorithms
