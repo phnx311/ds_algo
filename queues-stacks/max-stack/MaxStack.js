@@ -5,6 +5,7 @@ class Stack {
 
         //initialize an empty stack
         this.items = [];
+        this.length = this.items.length;
     }
 
     push(item) {
@@ -17,7 +18,7 @@ class Stack {
             return null;
         }
 
-        this.items.pop(item);
+        return this.items.pop(item);
     }
 
 
@@ -32,7 +33,6 @@ class Stack {
 
 class MaxStack {
     //we are not extending Stack here, rather using it in our constructor as a ds
-    //because we are writing all new pop, push functionality
     //we are taking a 'ahead-of-time' approach here rather than
     //'just-in-time'. so whenever we push or pop we check it against 
     //the last item in maxStack.
@@ -41,10 +41,27 @@ class MaxStack {
         this.maxStack = new Stack();
     }
 
+    push(item) {
+        //check if it's larger than maxStack last
+        const currentMax = this.maxStack.peek();
+        if (this.maxStack.length === 0 || item > currentMax) {
+            this.maxStack.push(item)
+        }
+        this.stack.push(item);
+    }
 
+    pop() {
+        //check if item being popped off stack is a currentMax
+        //since maxStack is a condensed version of stack this will work
+        const popped = this.stack.pop();
+        if (popped === this.maxStack.peek()) {
+            this.maxStack.pop();
+        }
+        return popped;
+    }
 
     getMax() {
-
+        return this.maxStack.peek();
     }
 }
 
