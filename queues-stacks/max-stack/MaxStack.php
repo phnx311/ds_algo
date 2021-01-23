@@ -2,14 +2,8 @@
 
     class Stack 
     {
-        public $items = [];
-        public $length;
-
-        public function __construct()
-        {
-            $this->length = count($this->items);  
-        }
-
+        private $items = [];
+        
         public function push($item) 
         {
             $this->items[] = $item;
@@ -37,18 +31,16 @@
     {
         private $stack;
         private $maxStack;
-        public $items;
 
         public function __construct()
         {
             $this->stack = new Stack;
             $this->maxStack = new Stack;
-            $this->items = $this->stack->items;
         }
 
         public function push($item)
         {
-            if ($this->maxStack->length === 0 || $item > $this->maxStack->peek()) {
+            if ($this->maxStack->peek() === null || $item >= $this->maxStack->peek()) {
                 $this->maxStack->push($item);
             }
             $this->stack->push($item);
@@ -56,9 +48,9 @@
 
         public function pop()
         {
-            if ($this->stack->length === 0) {
+            if (!count($this->stack)) {
                 return null;
-            }
+            } 
             $popped = $this->stack->pop();
             if ($popped === $this->maxStack->peek()) {
                 $this->maxStack->pop();
@@ -68,21 +60,14 @@
 
         public function getMax()
         {
-            if ($this->maxStack->length > 0) {
-                return $this->maxStack->peek();
-            } else {
-                return null;
-            }
+            return $this->maxStack->peek();
         }
 
     }
 
-    $maxStack = new MaxStack();
+    $maxStack = new maxStack();
     $maxStack->push(1);
-    var_dump($maxStack->items);
     $maxStack->push(2);
-    var_dump($maxStack->items);
     $maxStack->push(3);
-    var_dump($maxStack->items);
-    var_dump($maxStack->getMax());
+    print($maxStack->getMax());
 ?>
