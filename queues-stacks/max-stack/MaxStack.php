@@ -34,8 +34,8 @@
 
         public function __construct()
         {
-            $this->stack = new Stack;
-            $this->maxStack = new Stack;
+            $this->stack = new Stack();
+            $this->maxStack = new Stack();
         }
 
         public function push($item)
